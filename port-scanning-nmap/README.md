@@ -8,7 +8,7 @@ A small network inventory tool built on Nmap and Python. It discovers live hosts
 
 ## Repository Contents
 
-- `scripts/network_inventory.py`: discovers live hosts, scans open ports and services, prints a summary, and optionally exports JSON and CSV.
+- `scripts/network-inventory.py`: discovers live hosts, scans open ports and services, prints a summary, and optionally exports JSON and CSV.
 - `docs/`: screenshots and trimmed example output.
 - `requirements.txt`: Python dependencies.
 
@@ -22,7 +22,7 @@ A small network inventory tool built on Nmap and Python. It discovers live hosts
 
 ```bash
 pip install -r requirements.txt
-python3 scripts/network_inventory.py 192.168.1.0/24 -o inventory.json -c inventory.csv
+python3 scripts/network-inventory.py 192.168.1.0/24 -o inventory.json -c inventory.csv
 ```
 
 | Option | Description |
