@@ -1,0 +1,16 @@
+# Scan outputs may contain real IPs and hostnames
+*.nmap
+*.gnmap
+*.xml
+inventory.json
+inventory.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS and editor
+.DS_Store
+.vscode/
+.idea/
