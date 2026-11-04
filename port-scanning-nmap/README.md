@@ -4,6 +4,7 @@ A small network inventory tool built on Nmap and Python. It discovers live hosts
 
 ## Overview
 
+This project is a small command-line inventory tool built on top of Nmap. It runs a host discovery scan, then a service and version scan on each live host, and prints a summary. Results can be saved as JSON and CSV for later analysis.
 
 ## Repository Contents
 
@@ -92,6 +93,7 @@ Hosts Summary:
 - ﻿﻿80/tcp: http Apache httpd 2.4.7
 --------------------------------------------------
 ```
+
 ## Lab Environment
 
 - OS: Kali Linux GNU/Linux Rolling running in VMware Fusion
@@ -116,12 +118,11 @@ Comparing the script's output with a direct `nmap -F -sV` run:
 ## Known Issues
 
 - Service detection can return `tcpwrapped` without a product name when the banner is not available.
-- A service with no product name was counted as `Unique Services` but not printed, so the count and the list disagreed. This bug is still present in the version I ran.
 
 ## What I Learned
 
-- Parsing Nmap output is harder than running it. The script's `Unique Services` count included an empty value from port 22, which was stored but never printed. I identified this by comparing the summary against the stored data.
-- The same host can return different results between scans. Service detection depends on probe timing and responses, so a single scan is not a complete picture. Comparing against a direct Nmap run and the XML output helped me verify the scripts data.
+- Parsing Nmap output is harder than running it. The script's `Unique Services` count included an empty value from a port with no product name. The value was stored but never printed, so the count and the list disagreed. I found this by comparing the summary against the stored data. The fix only stores services that have a product name. I checked the filter logic with an empty product value. The live target always returned a product name for port 22, so the full script was not tested against a host without one.
+- The same host can return different results between scans. Service detection depends on probe timing and responses, so a single scan is not a complete picture. Comparing against a direct Nmap run and the XML output helped me verify the script's data.
 
 ## Limitations
 
