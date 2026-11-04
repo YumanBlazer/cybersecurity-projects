@@ -94,6 +94,10 @@ Hosts Summary:
 --------------------------------------------------
 ```
 
+![Script summary and JSON output on Kali](docs/script-summary-and-json.png)
+
+![Nmap XML output confirming the service name](docs/nmap-xml-verification.png)
+
 ## Lab Environment
 
 - OS: Kali Linux GNU/Linux Rolling running in VMware Fusion
