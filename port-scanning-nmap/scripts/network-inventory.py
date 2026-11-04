@@ -55,9 +55,11 @@ def network_inventory(target_network, output_file=None):
                 }
                 host_info['ports'].append(port_info)
                 
-                if nm[host][proto][port]['state'] == 'open':
-                    service = f"{nm[host][proto][port].get('product', 'Unknown')} {nm[host][proto][port].get('version', '')}"
-                    host_info['services'].append(service.strip())
+                if nm[host][proto['state'] == 'open':
+                    product = nm[nost][proto][port].get('product', '').strip()
+                    version = nm[host][proto][port].get('version', '').strip()
+                    if product:
+                        host_info['services'].append(f"{product} {version}".strip())
         
         inventory.append(host_info)
     
